@@ -1,12 +1,13 @@
 <img class="background" [src]="getBackgroundUrl()" alt="Background" >
-<div class="game-container">
+<div class="game-container" (click)="next()">
   
   <div class="display-area">
-      <img class="character" src="assets/officer.png" alt="Character 1" >
+      <img class="character" [src]="getCharacterUrl()" [alt]="scene.character.description" >
   </div>
 
   <div class="text-area">
-    {{sceneText}}
+    {{text}}
+    <button *ngFor="let action of actions" (click)="setScene(action.target)">{{action.text}}</button>
   </div>
 
 </div>

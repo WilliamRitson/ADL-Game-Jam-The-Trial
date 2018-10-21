@@ -13,20 +13,16 @@
     },
     "scenes": {
         "start": {
-            "lines": ["Hello", "World!"],
+            "lines": ["Rise and shine, scumbag.", "World!"],
             "backgroundUrl": "prison-bg.jpg",
             "character": "officer",
-            "actions": [
-                {"text": "What?!", "target": "initialLawyerChat"}
-            ]
+            "actions": [{ "text": "What?!", "target": "initialLawyerChat" }, { "text": "Huh?!", "target": "initialLawyerChat" }]
         },
         "initialLawyerChat": {
             "lines": ["I", "lawyer!"],
             "backgroundUrl": "prison-bg.jpg",
             "character": "lawyer",
-            "actions": [
-                {"text": "What?!", "target": "start"}
-            ]
+            "actions": [{ "text": "What?!", "target": "start" }]
         }
     }
 }

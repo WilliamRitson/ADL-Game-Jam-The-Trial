@@ -73,7 +73,9 @@ export class Scene {
         };
     }
 
-    public buildActions(scene: SavedScene, scenes: SceneMap) {}
+    public buildActions(scene: SavedScene, scenes: SceneMap) {
+      this.actions = scene.actions.map(data => Action.formJson(data, scenes));
+    }
 }
 
 @Injectable({
@@ -102,7 +104,6 @@ export class ScenesService {
             }
         }
         this.firstScene = scenes.start;
-        console.log(this, scenes);
     }
 
     public getFirst() {
