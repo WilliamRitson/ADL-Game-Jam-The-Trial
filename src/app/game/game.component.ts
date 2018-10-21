@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ScenesService, Scene, Action, Character, Option, CharacterMap } from '../scenes.service';
+import {
+    ScenesService,
+    Scene,
+    Action,
+    Character,
+    Option,
+    CharacterMap
+} from '../scenes.service';
 
 @Component({
     selector: 'app-game',
@@ -9,7 +16,7 @@ import { ScenesService, Scene, Action, Character, Option, CharacterMap } from '.
 export class GameComponent implements OnInit {
     public backgroundURL: string;
     public text: string;
-    private textColor  = 'black';
+    private textColor = 'black';
     public scene: Scene;
     public actions: Action[];
     public options: Option[];
@@ -43,7 +50,11 @@ export class GameComponent implements OnInit {
             }
         } else {
             this.text = '';
-            this.actions = this.scene.actions;
+            if (this.scene.actions.length > 0) {
+                this.actions = this.scene.actions;
+            } else {
+                this.setScene(this.scene.next);
+            }
         }
     }
 
@@ -70,7 +81,7 @@ export class GameComponent implements OnInit {
     private setText(text: string) {
         const tokens = text.split(':');
         if (tokens.length > 1) {
-            this.text =  tokens[1];
+            this.text = tokens[1];
             this.textColor = this.getColor(tokens[0]);
         } else {
             this.text = text;
@@ -81,7 +92,6 @@ export class GameComponent implements OnInit {
     private getColor(characterName: string) {
         return this.characters[characterName].aura;
     }
-
 
     public getBackgroundUrl() {
         return `assets/${this.backgroundURL}`;
@@ -101,7 +111,7 @@ export class GameComponent implements OnInit {
         const end = 6 - this.options.length;
         return {
             'grid-column': `1 / span ${end}`,
-            'color': this.textColor
+            color: this.textColor
         };
     }
     ngOnInit() {}

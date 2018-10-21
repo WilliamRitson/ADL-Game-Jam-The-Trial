@@ -1,7 +1,7 @@
 {
     "characters": {
         "narrator": {
-            "image": "",
+            "image": "blank.png",
             "description": "The narrator",
             "aura": "black"
         },
@@ -19,6 +19,11 @@
             "image": "lawyer.png",
             "description": "Your defense lawyer",
             "aura": "darkcyan"
+        },
+        "prosecutor": {
+            "image": "prosecutor.png",
+            "description": "Your defense lawyer",
+            "aura": "crimson"
         },
         "judge": {
             "image": "judge.png",
@@ -47,9 +52,7 @@
             ],
             "backgroundUrl": "prison-bg.jpg",
             "character": "officer",
-            "actions": [
-                { "text": "Speak with the lawyer", "target": "initialLawyerChat" }
-            ]
+            "next": "initialLawyerChat"
         },
         "initialLawyerChat": {
             "lines": [
@@ -63,7 +66,7 @@
                 [
                     {
                         "option": "My defense?",
-                        "response": "lawyer: Yes, <playerName> every citizen has the right to a defense."
+                        "response": "lawyer: Yes, every citizen has the right to a defense."
                     },
                     {
                         "option": "Can’t we delay it? I need time.",
@@ -71,7 +74,7 @@
                     }
                 ],
                 "lawyer: Unfortunately, the facts of the case are quite clear and not at all in our favor. We don’t have much room to maneuver. The most important thing is that you make a good impression on the Justice. ",
-                "lawyer: Be on your best behavior. Show respect and, most of all, show regret. Then they may be lenient. Not every <DSForTransgender> ends up in the electric chair. Lets make you the exception.",
+                "lawyer: Be on your best behavior. Show respect and, most of all, show regret. Then they may be lenient. Not every mutilator ends up in the electric chair. Lets make you the exception.",
                 [
                     {
                         "option": "The electric chair?",
@@ -83,49 +86,161 @@
                     }
                 ],
                 "narrator: The lawyer looks down at his watch",
-                "lawyer: My time here is over. You should reflect on what you’ve done and prepare for worst case scenario inside the courtroom. "
+                "lawyer: My time here is over. You should reflect on what you’ve done and prepare for worst case scenario inside the courtroom. ",
+                [
+                    { "option": "Watch as your attorney leaves", "response": "narrator: The guard opens the door and the man leaves without a word" },
+                    { "option": "Call out, Wait. You need to help me", "response": "lawyer: No time now, we will talk latter." }
+                ],
+                "narrator: Soon you are alone again. You the darkness of the cell seems to intrude upon your minds as the minutes turn into hours.",
+                "narrator: Boredom, dread and confusion battle for dominion of your mind as you await the guards return.",
+                "narrator: Eventually he does come. He opens the door and drags you by the arms through the poorly lit hallways of the prison towards the court"
             ],
             "backgroundUrl": "prison-bg.jpg",
             "character": "lawyer",
-            "actions": [
-                { "text": "Watch as the judge leaves", "target": "firstHearing" },
-                { "text": "Call out, Wait. You need to help me", "target": "firstHearing" }
-            ]
+            "next": "firstHearing"
         },
         "firstHearing": {
             "lines": [
                 "narrator: While you walk to the courtroom, people shout and yell derogatory terms for the transgender calling you names. They tell you that you don’t deserve to live and that people of your kind should not be even allowed a trial. ",
                 "judge: We will now proceed with the trial at hand. The prosecution will present there opening statement.",
-                "prosecutor: On <SomeDateHere>, the <DSForTransgender> has <DSForCrimeCommitted>. The evidence is clear. What the <DSForTransgender> wants you to believe is that they haven’t done anything wrong, but in ACTUALITY they have committed a serious crime. The motive behind this crime is unclear but the FACT that they have done it is for certain. It’s disheartening that anybody in our society could do something so foul. They deserve to be punished with the full extent of the law. The evidence is clear.",
-                "prosecutor: I present to you the tools used for the <DSForCrimeCommitted>. (The Prosecution brings out a sharp knife objects, needles, pictures of the crime, and different types of body parts that aren’t explicitly stated).",
-                "prosecutor: LOOK AT THE EVIDENCE! IT’S HERE, AND THE CRIME HAS BEEN COMMITTED. IT SHOWS ON THE <DSForTransgender> FACE! <CharacterName> deserves the worst punishment possible. ",
+                "prosecutor: The evidence is clear. On October 20th, the prosecution committed gross mutilation and other heinous crimes. What the defense wants you to believe is that they haven’t done anything wrong, but in ACTUALITY they have committed a serious crime. The motive behind this crime is unclear but the FACT that they have done it is for certain. It’s disheartening that anybody in our society could do something so foul. They deserve to be punished with the full extent of the law.",
                 "judge: Now the Defendant will now present their opening statement.",
-                "lawyer: The defendant would like to apologize for their behavior during today's trial. The defendant hasn’t done anything wrong. Their crime shouldn’t be punished to the extent that it is.",
+                "lawyer: The defense would like to make an appeal to the judge to lessen the punishment for these charges. The defendant hasn’t done anything wrong. Their crime should be considered  lightly due to the limited effect of these crimes.",
                 "judge: Is that all?",
-                "lawyer: I would like to call the defendant to the stand.",
+                "lawyer: Uh... Yes",
+                "prosecutor:  I would like to call the defendant to the stand",
                 "narrator: A bailiff grabs you by the arm and pulls you to the stand",
                 "prosecutor: Do you remember where you were the night of October the 20th",
                 [
                     {
-                        "option": "player: I don’t remember",
-                        "response": "prosecutor: You don't remember? It was less than a month ago. That seems unlikely"
+                        "option": "I don’t remember",
+                        "response": "prosecutor: HA! A likely story indeed, In fact, You were seen by multiple witnesses approaching the scene of the crime"
                     },
                     {
-                        "option": "Shouldn’t we focus on proving my innocence?",
-                        "response": "player:   As I said, the facts of the case are quite clear. It’s far too late for that to work. In all truth, you should have plead guilty from the start. But its too late now."
+                        "option": "I’m sorry, I would tell you but I don’t know.",
+                        "response": "prosecutor: HA! A likely story indeed, In fact, You were seen by multiple witnesses approaching the scene of the crime",
+                        "guilt": 1
+                    },
+                    {
+                        "option": "Keep listening silently",
+                        "response": "",
+                        "guilt": 1
+                    },
+                    {
+                        "option": "Hold on, who exactly are these witnesses? And why aren’t they here testifying"                        ,
+                        "response": "prosecutor: Would the defense please control themselves? Such behavior is unbecoming in a court of law, and I’ll be asking the questions here",
+                        "guilt": -1
                     }
                 ],
-                "player: Do you remember where you were the night of October the 20th"
+                "prosecutor: I’ll keep this last question simple.  Did you commit the crime of Mutilation?",
+                [
+                    {
+                        "option": "No",
+                        "response": "prosecutor: You say that, yet you seem to have no recollection of these events, you haven’t even provided an alibi. Why is that?"
+                    },
+                    {
+                        "option": "I can’t remember",
+                        "response": "prosecutor: You can’t remember?!",
+                        "guilt": 1
+                    }
+                ],
+                "lawyer: Excuse me! My client is clearly distressed, I would like to call for recess until tomorrow and discuss further details with my client.",
+                "prosecutor: Fine if you insist."
             ],
             "backgroundUrl": "billboard-appeals-courtroom.jpg",
             "character": "judge",
-            "actions": [{ "text": "placeholder?!", "target": "break" }]
+            "next": "cell2"
         },
-        "break": {
-            "lines": ["A judge is me"],
-            "backgroundUrl": "courtyard.jpg",
+        "cell2": {
+            "lines": [
+                "narrator: You end up back at your jail cell after the trial. You lie down on the uncomforting feeling of your rock hard mattress and itchy blanket.",
+                "player: Why are these things happening to me. I don’t understand. I wish I could at least remember something that happened before… ",
+                "player: I wonder what kind of crime I had committed for people to bring so much hate to me. I just need to get some rest and not think about this trial.",
+                "narrator: You end up back at your jail cell after the trial. You lie down on the uncomforting feeling of your rock hard mattress and itchy blanket."
+            ],
+            "backgroundUrl": "prison-bg.jpg",
+            "character": "narrator",
+            "next": "hearing2"
+        },
+        "hearing2": {
+            "lines": [
+                "prosecutor: Hopefully you have recovered from your little episode yesterday. Moving on, what is your relation to the known criminal Dr. Glover",
+                "narrator: The prosecutor  holds up a picture of an unfamiliar looking face",
+                [
+                    {
+                        "option": "I’ve never heard of or seen that man before",
+                        "response": "prosecutor: Such audacity in the courtroom! This man was your accomplice in your crimes",
+                        "guilt": -1
+                    },
+                    {
+                        "option": "I can’t remember",
+                        "response": "prosecutor: Playing dumb huh? LIAR! You have seen that man before and we know it. This man was your accomplice in your crime",
+                        "guilt": 0
+                    }
+                ],
+                "prosecutor: Have you ever seen this tool before? [holding up a blood-covered scalpel]",
+                [
+                    {
+                        "option": "That’s a scalpel",
+                        "response": "prosecutor: Not only is this a scalpel, this was the weapon you used to carve and mutilate",
+                        "guilt": -1
+                    },
+                    {
+                        "option": "I don’t know what that is",
+                        "response": "prosecutor: This is the scalpel you used to carve and mutilate YOURSELF. The evidence is clear judge. The defendant is guilty!",
+                        "guilt": 0
+                    }
+                ],
+                
+                "judge: Now, for the crimes of Self Mutilation , conspiracy, attempted false identity, and the crux of the issue, gender reassignment surgery, the defendant is sentenced to (Life in prison if high GM) or (Execution if low GM)",
+                "player: suddenly it all comes rushing back to you. You start remembering the past. the years of fear and confusion, the self discovery and assertion, and finally, the operation you had so you could truly feel like yourself. You and the doctor were both arrested soon after the operation, and the first night in your cell, the guards beat you so badly you fell unconscious until the day of the trial."
+                
+            ],
+            "backgroundUrl": "billboard-appeals-courtroom.jpg",
             "character": "judge",
-            "actions": [{ "text": "What?!", "target": "start" }]
+            "actions": [
+                {"text": "Good end", "target": "goodEnd"},
+                {"text": "Bad end", "target": "badEnd"}
+            ]
+        },
+        "goodEnd": {
+            "lines": [
+                "narrator: Your lawyer approaches your cell.",
+                "player: This didn’t go well it?",
+                "lawyer: No it did not.",
+                "narrator: Suddenly, a fight breaks out within the walls of the prison",
+                "guard: Hey!",
+                "narrator: The guards run off to the scene leaving you alone with your lawyer",
+                "lawyer: We don’t have much time, your fight has inspired resistances across the country, if you want to be free, meet at the western wall before you get transferred tomorrow, you’ll know when.",
+                "narrator: Without another word of explication, the lawyer leaves your cell",
+                "narrator: Eventually, the riot is quelled. Nothing else happens that day and you drift to sleep.",
+                "narrator: The next day you wake up to shouting down the hall, and your door seems to be unlocked.",
+                "narrator: As you peer outside, you see prisoners running around attacking officers, a full fledged riot is going on."
+            ],
+            "backgroundUrl": "prison-bg.jpg",
+            "character": "lawyer",
+            "next": "goodEndEscape"
+        },
+        "goodEndEscape": {
+            "lines": [
+                "narrator: Stumbling through the chaos, you head over to the western wall, and notice a large chunk of barbed wire is missing and a rope is hanging down. You walk over to the hanging rope and frantically climb up it. As you make your way to the top your head slightly peaks over the edge of the wall and you see group of 4 people surrounding a truck. They signal to you and you make your way to the getaway car as you knowingly run towards future of freedom."
+            ],
+            "backgroundUrl": "courtyard.jpg",
+            "character": "narrator",
+            "next": "start"
+        },
+        "badEnd": {
+            "lines": [
+                "narrator: Your lawyer approaches your cell.",
+                "player: This didn’t go well it?",
+                "lawyer: There was never much hope of getting tried innocent in the first place.",
+                "narrator: The guards transition to take a break leaving you alone with your lawyer.",
+                "lawyer: I wish this had been different, I really do, but know that you escaped from the worst case scenario",
+                "narrator: you think back to when you had just gotten your operation done. You were in a state of such euphoria, but you slowly start to realize your current situation and think about what awaits you for the rest of your life. A lifetime of sitting inside a fenced box. Regret fills you up as you lay there in the darkness of your own cell."
+            ],
+            "backgroundUrl": "courtyard.jpg",
+            "character": "lawyer",
+            "next": "start"
         }
     }
 }

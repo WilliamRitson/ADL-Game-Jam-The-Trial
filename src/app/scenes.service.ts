@@ -20,7 +20,8 @@ interface SavedScene {
     lines: Array<string>;
     backgroundUrl: string;
     character: string;
-    actions: Array<SavedAction>;
+    actions?: Array<SavedAction>;
+    next: string;
 }
 interface SceneMap {
     [name: string]: Scene;
@@ -29,6 +30,7 @@ interface SceneMap {
 export interface Option {
     option: string;
     response: string;
+    guilt?: number;
 }
 
 export type Line = string | Array<Option>;
@@ -58,7 +60,8 @@ export class Scene {
         public lines: Array<Line>,
         public backgroundUrl: string,
         public character: Character,
-        public actions: Array<Action>
+        public actions: Array<Action>,
+        public next: Scene
     ) {}
 
     public static formJson(scene: SavedScene, characters: CharacterMap) {
@@ -67,7 +70,8 @@ export class Scene {
             scene.lines,
             scene.backgroundUrl,
             characters[scene.character],
-            []
+            [],
+            null
         );
     }
 
@@ -81,7 +85,12 @@ export class Scene {
     }
 
     public buildActions(scene: SavedScene, scenes: SceneMap) {
-      this.actions = scene.actions.map(data => Action.formJson(data, scenes));
+        const actionData = scene.actions || [];
+        this.actions = actionData.map(data => Action.formJson(data, scenes));
+        if (scene.next) {
+            this.next =  scenes[scene.next];
+        }
+        console.log(this.next);
     }
 }
 
