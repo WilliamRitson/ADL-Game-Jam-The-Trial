@@ -50,7 +50,8 @@
 }
 
 .text {
-    display: table-cell; vertical-align: middle;
+    -webkit-text-stroke-width: 0.2px;
+   -webkit-text-stroke-color: black;
 }
 
 .text-area button {

@@ -1,5 +1,15 @@
 {
     "characters": {
+        "narrator": {
+            "image": "",
+            "description": "The narrator",
+            "aura": "black"
+        },
+        "player": {
+            "image": "",
+            "description": "The player",
+            "aura": "blue"
+        },
         "officer": {
             "image": "officer.png",
             "description": "A police officer",
@@ -8,48 +18,111 @@
         "lawyer": {
             "image": "lawyer.png",
             "description": "Your defense lawyer",
-            "aura": "cyan"
+            "aura": "darkcyan"
         },
         "judge": {
             "image": "judge.png",
             "description": "Your defense lawyer",
-            "aura": "gold"
+            "aura": "#66023C"
         }
     },
     "scenes": {
         "start": {
-            "lines": ["Rise and shine, scumbag.", "World!"],
+            "lines": [
+                "narrator: You wake up dazed and confused and notice you’re inside of a dark room. Someone is shaking you violently. You look up and see a man in police uniform. You catch a hint of surprise on his face as you turn your head towards him",
+                "officer: So you finally felt like waking up. That makes things simpler. Your lawyer will be meeting with you in half an hour.",
+                [
+                    {
+                        "option": "My lawyer?",
+                        "response": "officer: Yes, even bastards like you get a lawyer. Not that it's going to make a difference"
+                    },
+                    {
+                        "option": "Where Am I?",
+                        "response": "officer: Prison, obviously. And your going to stay here unless you go meet your lawyer."
+                    }
+                ],
+                "narrator: The man walks out of the cell without giving you another chance to speak. The door closes and locks after him",
+                "narrator: You wait in the small room racking your brain for memories of what happened. But they don't come. The last thing you can remember is a normal day of work. But it feels like it was ages ago",
+                "narrator: Some time latter the guard reappears accompanied by a man in a suit. The guard opens the door and the lawyer enters"
+            ],
             "backgroundUrl": "prison-bg.jpg",
             "character": "officer",
-            "actions": [{ "text": "What?!", "target": "initialLawyerChat" }, { "text": "Huh?!", "target": "initialLawyerChat" }]
+            "actions": [
+                { "text": "Speak with the lawyer", "target": "initialLawyerChat" }
+            ]
         },
         "initialLawyerChat": {
             "lines": [
-                "Hello <playerName> I have been appointed as your legal council. You have been unconscious for some time, unfortunately that doesn’t leave us with much time to prepare.", 
-                "In fact, the first hearing will be this evening. We will need to make your defense in front of the Justice.",
+                "lawyer: Hello. Good to see you up and about, you’ve been out for quite a while.",
+                "player: What? Who are you? What’s going on? Where the hell am I?",
+                "lawyer: You can’t remember me",
+                "player: No, I can’t remember anything that happened before I woke up here.",
+                "lawyer: You’re on trial for “gross mutilation”. I have been appointed as your legal council.",
+                "lawyer: You refused my advice to accept a plea, so now there’s no turning back. The trail has been delayed since you have been unconscious for some time, but the court will delay no further unfortunately that doesn’t leave us with much time to prepare.",
+                "lawyer: The next hearing will be this evening. We will need to make your defense in front of the Justice.",
                 [
-                    {"option": "My defense?", "response": "Yes, <playerName> every citizen has the right to a defense. Even your kind."},
-                    {"option": "Can’t we delay it? I need time.", "response": "The court doesn’t break its schedules for the likes of you."}
+                    {
+                        "option": "My defense?",
+                        "response": "lawyer: Yes, <playerName> every citizen has the right to a defense."
+                    },
+                    {
+                        "option": "Can’t we delay it? I need time.",
+                        "response": "lawyer: The court doesn’t break its schedules for anyone, certainly not for someone of your standing."
+                    }
                 ],
-                "Unfortunately, the facts of the case are quite clear and not at all in our favor. We don’t have much room to maneuver. The most important thing is that you make a good impression on the Justice. ",
-                "Be on your best behavior. Show respect and, most of all, show regret. Then they may be lenient. Not every <doubleSpeakForTransgender> ends up executed. Lets make you the exception."
+                "lawyer: Unfortunately, the facts of the case are quite clear and not at all in our favor. We don’t have much room to maneuver. The most important thing is that you make a good impression on the Justice. ",
+                "lawyer: Be on your best behavior. Show respect and, most of all, show regret. Then they may be lenient. Not every <DSForTransgender> ends up in the electric chair. Lets make you the exception.",
+                [
+                    {
+                        "option": "The electric chair?",
+                        "response": "lawyer: That is the standard punishment, but not the minimum one. A little sympathy from the justice may yet spare you that fate."
+                    },
+                    {
+                        "option": "Shouldn’t we focus on proving my innocence?",
+                        "response": "lawyer:  As I said, the facts of the case are quite clear. It’s far too late for that to work. In all truth, you should have plead guilty from the start. But its too late now."
+                    }
+                ],
+                "narrator: The lawyer looks down at his watch",
+                "lawyer: My time here is over. You should reflect on what you’ve done and prepare for worst case scenario inside the courtroom. "
             ],
             "backgroundUrl": "prison-bg.jpg",
             "character": "lawyer",
-            "actions": [{ "text": "What?!", "target": "firstHearing" }]
+            "actions": [
+                { "text": "Watch as the judge leaves", "target": "firstHearing" },
+                { "text": "Call out, Wait. You need to help me", "target": "firstHearing" }
+            ]
         },
         "firstHearing": {
             "lines": [
-                "A judge is me"
+                "narrator: While you walk to the courtroom, people shout and yell derogatory terms for the transgender calling you names. They tell you that you don’t deserve to live and that people of your kind should not be even allowed a trial. ",
+                "judge: We will now proceed with the trial at hand. The prosecution will present there opening statement.",
+                "prosecutor: On <SomeDateHere>, the <DSForTransgender> has <DSForCrimeCommitted>. The evidence is clear. What the <DSForTransgender> wants you to believe is that they haven’t done anything wrong, but in ACTUALITY they have committed a serious crime. The motive behind this crime is unclear but the FACT that they have done it is for certain. It’s disheartening that anybody in our society could do something so foul. They deserve to be punished with the full extent of the law. The evidence is clear.",
+                "prosecutor: I present to you the tools used for the <DSForCrimeCommitted>. (The Prosecution brings out a sharp knife objects, needles, pictures of the crime, and different types of body parts that aren’t explicitly stated).",
+                "prosecutor: LOOK AT THE EVIDENCE! IT’S HERE, AND THE CRIME HAS BEEN COMMITTED. IT SHOWS ON THE <DSForTransgender> FACE! <CharacterName> deserves the worst punishment possible. ",
+                "judge: Now the Defendant will now present their opening statement.",
+                "lawyer: The defendant would like to apologize for their behavior during today's trial. The defendant hasn’t done anything wrong. Their crime shouldn’t be punished to the extent that it is.",
+                "judge: Is that all?",
+                "lawyer: I would like to call the defendant to the stand.",
+                "narrator: A bailiff grabs you by the arm and pulls you to the stand",
+                "prosecutor: Do you remember where you were the night of October the 20th",
+                [
+                    {
+                        "option": "player: I don’t remember",
+                        "response": "prosecutor: You don't remember? It was less than a month ago. That seems unlikely"
+                    },
+                    {
+                        "option": "Shouldn’t we focus on proving my innocence?",
+                        "response": "player:   As I said, the facts of the case are quite clear. It’s far too late for that to work. In all truth, you should have plead guilty from the start. But its too late now."
+                    }
+                ],
+                "player: Do you remember where you were the night of October the 20th", 
             ],
             "backgroundUrl": "billboard-appeals-courtroom.jpg",
             "character": "judge",
-            "actions": [{ "text": "What?!", "target": "break" }]
+            "actions": [{ "text": "placeholder?!", "target": "break" }]
         },
         "break": {
-            "lines": [
-                "A judge is me"
-            ],
+            "lines": ["A judge is me"],
             "backgroundUrl": "courtyard.jpg",
             "character": "judge",
             "actions": [{ "text": "What?!", "target": "start" }]

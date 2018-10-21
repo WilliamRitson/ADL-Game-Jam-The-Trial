@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ScenesService, Scene, Action, Character, Option } from '../scenes.service';
+import { ScenesService, Scene, Action, Character, Option, CharacterMap } from '../scenes.service';
 
 @Component({
     selector: 'app-game',
@@ -9,13 +9,16 @@ import { ScenesService, Scene, Action, Character, Option } from '../scenes.servi
 export class GameComponent implements OnInit {
     public backgroundURL: string;
     public text: string;
+    private textColor  = 'black';
     public scene: Scene;
     public actions: Action[];
     public options: Option[];
     private lineIndex: number;
     private canContinue = true;
+    private characters: CharacterMap;
 
     constructor(scenes: ScenesService) {
+        this.characters = scenes.getCharacters();
         this.setScene(scenes.getFirst());
     }
 
@@ -34,7 +37,7 @@ export class GameComponent implements OnInit {
             this.lineIndex++;
             const nextLine = this.scene.lines[this.lineIndex];
             if (typeof nextLine === 'string') {
-                this.text = nextLine;
+                this.setText(nextLine);
             } else {
                 this.options = nextLine;
             }
@@ -45,7 +48,6 @@ export class GameComponent implements OnInit {
     }
 
     public continue() {
-        console.log('continue');
         if (!this.canContinue || this.options.length !== 0) {
             return;
         }
@@ -53,18 +55,31 @@ export class GameComponent implements OnInit {
     }
 
     public runAction(action: Action) {
-        console.log('runAction');
         this.canContinue = false;
         this.setScene(action.target);
         setTimeout(() => (this.canContinue = true), 100);
     }
 
     public runOption(option: Option) {
-        console.log('runOption');
         this.canContinue = false;
         this.options = [];
-        this.text = option.response;
+        this.setText(option.response);
         setTimeout(() => (this.canContinue = true), 100);
+    }
+
+    private setText(text: string) {
+        const tokens = text.split(':');
+        if (tokens.length > 1) {
+            this.text =  tokens[1];
+            this.textColor = this.getColor(tokens[0]);
+        } else {
+            this.text = text;
+            this.textColor = this.getColor('narrator');
+        }
+    }
+
+    private getColor(characterName: string) {
+        return this.characters[characterName].aura;
     }
 
 
@@ -85,7 +100,8 @@ export class GameComponent implements OnInit {
     public getTextStyle() {
         const end = 6 - this.options.length;
         return {
-            'grid-column': `1 / span ${end}`
+            'grid-column': `1 / span ${end}`,
+            'color': this.textColor
         };
     }
     ngOnInit() {}

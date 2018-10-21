@@ -6,7 +6,7 @@ export interface Character {
     image: string;
     aura: string;
 }
-interface CharacterMap {
+export interface CharacterMap {
     [name: string]: Character;
 }
 
@@ -90,8 +90,11 @@ export class Scene {
 })
 export class ScenesService {
     private firstScene: Scene;
+    private characters: CharacterMap;
 
     constructor() {
+        this.characters = storyData.characters;
+        
         const scenes: SceneMap = {};
         for (const sceneName in storyData.scenes) {
             if (storyData.scenes.hasOwnProperty(sceneName)) {
@@ -115,5 +118,9 @@ export class ScenesService {
 
     public getFirst() {
         return this.firstScene;
+    }
+
+    public getCharacters() {
+        return this.characters;
     }
 }
