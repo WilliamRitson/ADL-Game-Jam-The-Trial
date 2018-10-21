@@ -88,8 +88,14 @@
                 "narrator: The lawyer looks down at his watch",
                 "lawyer: My time here is over. You should reflect on what you’ve done and prepare for worst case scenario inside the courtroom. ",
                 [
-                    { "option": "Watch as your attorney leaves", "response": "narrator: The guard opens the door and the man leaves without a word" },
-                    { "option": "Call out, Wait. You need to help me", "response": "lawyer: No time now, we will talk latter." }
+                    {
+                        "option": "Watch as your attorney leaves",
+                        "response": "narrator: The guard opens the door and the man leaves without a word"
+                    },
+                    {
+                        "option": "Call out, Wait. You need to help me",
+                        "response": "lawyer: No time now, we will talk latter."
+                    }
                 ],
                 "narrator: Soon you are alone again. You the darkness of the cell seems to intrude upon your minds as the minutes turn into hours.",
                 "narrator: Boredom, dread and confusion battle for dominion of your mind as you await the guards return.",
@@ -101,9 +107,9 @@
         },
         "firstHearing": {
             "lines": [
-                "narrator: While you walk to the courtroom, people shout and yell derogatory terms for the transgender calling you names. They tell you that you don’t deserve to live and that people of your kind should not be even allowed a trial. ",
-                "judge: We will now proceed with the trial at hand. The prosecution will present there opening statement.",
-                "prosecutor: The evidence is clear. On October 20th, the prosecution committed gross mutilation and other heinous crimes. What the defense wants you to believe is that they haven’t done anything wrong, but in ACTUALITY they have committed a serious crime. The motive behind this crime is unclear but the FACT that they have done it is for certain. It’s disheartening that anybody in our society could do something so foul. They deserve to be punished with the full extent of the law.",
+                "narrator: While you walk to the courtroom, people shout and jeer at you. They tell you that you don’t deserve to live and that people of your kind should not be even allowed a trial. ",
+                "judge: We will now proceed with the trial at hand. The prosecution will present their opening statement.",
+                "prosecutor: The evidence is clear. On October 20th, the defendant committed gross mutilation and other heinous crimes. What the defense wants you to believe is that they haven’t done anything wrong, but in ACTUALITY they have committed a serious crime. The motive behind this crime is unclear but the FACT that they have done it is for certain. It’s disheartening that anybody in our society could do something so foul. They deserve to be punished with the full extent of the law.",
                 "judge: Now the Defendant will now present their opening statement.",
                 "lawyer: The defense would like to make an appeal to the judge to lessen the punishment for these charges. The defendant hasn’t done anything wrong. Their crime should be considered  lightly due to the limited effect of these crimes.",
                 "judge: Is that all?",
@@ -120,14 +126,16 @@
                         "option": "I’m sorry, I would tell you but I don’t know.",
                         "response": "prosecutor: HA! A likely story indeed, In fact, You were seen by multiple witnesses approaching the scene of the crime",
                         "guilt": 1
-                    },
+                    }
+                ],
+                [
                     {
                         "option": "Keep listening silently",
                         "response": "",
                         "guilt": 1
                     },
                     {
-                        "option": "Hold on, who exactly are these witnesses? And why aren’t they here testifying"                        ,
+                        "option": "Hold on, who exactly are these witnesses? And why aren’t they here testifying",
                         "response": "prosecutor: Would the defense please control themselves? Such behavior is unbecoming in a court of law, and I’ll be asking the questions here",
                         "guilt": -1
                     }
@@ -191,16 +199,15 @@
                         "guilt": 0
                     }
                 ],
-                
+
                 "judge: Now, for the crimes of Self Mutilation , conspiracy, attempted false identity, and the crux of the issue, gender reassignment surgery, the defendant is sentenced to (Life in prison if high GM) or (Execution if low GM)",
                 "player: suddenly it all comes rushing back to you. You start remembering the past. the years of fear and confusion, the self discovery and assertion, and finally, the operation you had so you could truly feel like yourself. You and the doctor were both arrested soon after the operation, and the first night in your cell, the guards beat you so badly you fell unconscious until the day of the trial."
-                
             ],
             "backgroundUrl": "billboard-appeals-courtroom.jpg",
             "character": "judge",
             "actions": [
-                {"text": "Good end", "target": "goodEnd"},
-                {"text": "Bad end", "target": "badEnd"}
+                { "text": "Good end", "target": "goodEnd" },
+                { "text": "Bad end", "target": "badEnd" }
             ]
         },
         "goodEnd": {
