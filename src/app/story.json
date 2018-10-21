@@ -1,0 +1,32 @@
+{
+    "characters": {
+        "officer": {
+            "image": "officer.png",
+            "description": "A police officer",
+            "aura": "red"
+        },
+        "lawyer": {
+            "image": "lawyer.png",
+            "description": "Your defense lawyer",
+            "aura": "blue"
+        }
+    },
+    "scenes": {
+        "start": {
+            "lines": ["Hello", "World!"],
+            "backgroundUrl": "prison-bg.jpg",
+            "character": "officer",
+            "actions": [
+                {"text": "What?!", "target": "initialLawyerChat"}
+            ]
+        },
+        "initialLawyerChat": {
+            "lines": ["I", "lawyer!"],
+            "backgroundUrl": "prison-bg.jpg",
+            "character": "lawyer",
+            "actions": [
+                {"text": "What?!", "target": "start"}
+            ]
+        }
+    }
+}
