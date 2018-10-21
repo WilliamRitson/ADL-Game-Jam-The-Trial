@@ -94,7 +94,7 @@ export class ScenesService {
 
     constructor() {
         this.characters = storyData.characters;
-        
+
         const scenes: SceneMap = {};
         for (const sceneName in storyData.scenes) {
             if (storyData.scenes.hasOwnProperty(sceneName)) {
