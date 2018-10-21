@@ -9,6 +9,11 @@
             "image": "lawyer.png",
             "description": "Your defense lawyer",
             "aura": "cyan"
+        },
+        "judge": {
+            "image": "judge.png",
+            "description": "Your defense lawyer",
+            "aura": "gold"
         }
     },
     "scenes": {
@@ -31,6 +36,22 @@
             ],
             "backgroundUrl": "prison-bg.jpg",
             "character": "lawyer",
+            "actions": [{ "text": "What?!", "target": "firstHearing" }]
+        },
+        "firstHearing": {
+            "lines": [
+                "A judge is me"
+            ],
+            "backgroundUrl": "billboard-appeals-courtroom.jpg",
+            "character": "judge",
+            "actions": [{ "text": "What?!", "target": "break" }]
+        },
+        "break": {
+            "lines": [
+                "A judge is me"
+            ],
+            "backgroundUrl": "courtyard.jpg",
+            "character": "judge",
             "actions": [{ "text": "What?!", "target": "start" }]
         }
     }
