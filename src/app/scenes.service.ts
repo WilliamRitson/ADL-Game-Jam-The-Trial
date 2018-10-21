@@ -26,6 +26,13 @@ interface SceneMap {
     [name: string]: Scene;
 }
 
+export interface Option {
+    option: string;
+    response: string;
+}
+
+export type Line = string | Array<Option>;
+
 export class Action {
     public text: string;
     public target: Scene;
@@ -48,7 +55,7 @@ export class Action {
 export class Scene {
     constructor(
         public name: string,
-        public lines: Array<string>,
+        public lines: Array<Line>,
         public backgroundUrl: string,
         public character: Character,
         public actions: Array<Action>

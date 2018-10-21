@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ScenesService, Scene, Action, Character } from '../scenes.service';
+import { ScenesService, Scene, Action, Character, Option } from '../scenes.service';
 
 @Component({
     selector: 'app-game',
@@ -11,6 +11,7 @@ export class GameComponent implements OnInit {
     public text: string;
     public scene: Scene;
     public actions: Action[];
+    public options: Option[];
     private lineIndex: number;
     private canContinue = true;
 
@@ -20,30 +21,52 @@ export class GameComponent implements OnInit {
 
     private setScene(scene: Scene) {
         this.scene = scene;
-        this.lineIndex = 0;
-        this.text = scene.lines[this.lineIndex];
         this.actions = [];
+        this.options = [];
         this.backgroundURL = scene.backgroundUrl;
+
+        this.lineIndex = -1;
+        this.nextLine();
     }
 
-    public next() {
-        if (!this.canContinue) {
-            return;
-        }
+    private nextLine() {
         if (this.lineIndex < this.scene.lines.length - 1) {
             this.lineIndex++;
-            this.text = this.scene.lines[this.lineIndex];
+            const nextLine = this.scene.lines[this.lineIndex];
+            if (typeof nextLine === 'string') {
+                this.text = nextLine;
+            } else {
+                this.options = nextLine;
+            }
         } else {
             this.text = '';
             this.actions = this.scene.actions;
         }
     }
 
+    public continue() {
+        console.log('continue');
+        if (!this.canContinue || this.options.length !== 0) {
+            return;
+        }
+        this.nextLine();
+    }
+
     public runAction(action: Action) {
+        console.log('runAction');
         this.canContinue = false;
         this.setScene(action.target);
-        setTimeout(() => this.canContinue = true, 100);
+        setTimeout(() => (this.canContinue = true), 100);
     }
+
+    public runOption(option: Option) {
+        console.log('runOption');
+        this.canContinue = false;
+        this.options = [];
+        this.text = option.response;
+        setTimeout(() => (this.canContinue = true), 100);
+    }
+
 
     public getBackgroundUrl() {
         return `assets/${this.backgroundURL}`;
@@ -59,5 +82,11 @@ export class GameComponent implements OnInit {
         };
     }
 
+    public getTextStyle() {
+        const end = 6 - this.options.length;
+        return {
+            'grid-column': `1 / span ${end}`
+        };
+    }
     ngOnInit() {}
 }

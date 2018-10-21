@@ -19,7 +19,16 @@
             "actions": [{ "text": "What?!", "target": "initialLawyerChat" }, { "text": "Huh?!", "target": "initialLawyerChat" }]
         },
         "initialLawyerChat": {
-            "lines": ["I", "lawyer!"],
+            "lines": [
+                "Hello <playerName> I have been appointed as your legal council. You have been unconscious for some time, unfortunately that doesn’t leave us with much time to prepare.", 
+                "In fact, the first hearing will be this evening. We will need to make your defense in front of the Justice.",
+                [
+                    {"option": "My defense?", "response": "Yes, <playerName> every citizen has the right to a defense. Even your kind."},
+                    {"option": "Can’t we delay it? I need time.", "response": "The court doesn’t break its schedules for the likes of you."}
+                ],
+                "Unfortunately, the facts of the case are quite clear and not at all in our favor. We don’t have much room to maneuver. The most important thing is that you make a good impression on the Justice. ",
+                "Be on your best behavior. Show respect and, most of all, show regret. Then they may be lenient. Not every <doubleSpeakForTransgender> ends up executed. Lets make you the exception."
+            ],
             "backgroundUrl": "prison-bg.jpg",
             "character": "lawyer",
             "actions": [{ "text": "What?!", "target": "start" }]

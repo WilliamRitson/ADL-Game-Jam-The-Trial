@@ -1,13 +1,14 @@
 <img class="background" [src]="getBackgroundUrl()" alt="Background" >
-<div class="game-container" (click)="next()">
+<div class="game-container" (click)="continue()">
   
   <div class="display-area">
       <img class="character" [ngStyle]="getCharacterAura()" [src]="getCharacterUrl()" [alt]="scene.character.description" >
   </div>
 
-  <div class="text-area">
-    {{text}}
-    <button *ngFor="let action of actions" (click)="runAction(action)">{{action.text}}</button>
+  <div class="text-area" >
+    <p class="text" *ngIf="actions.length === 0" [ngStyle]="getTextStyle()">{{text}}</p>
+    <button *ngFor="let action of actions" (click)="runAction(action)" class="action">{{action.text}}</button>
+    <button *ngFor="let option of options" (click)="runOption(option)" class="option">{{option.option}}</button>
   </div>
 
 </div>

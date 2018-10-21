@@ -17,7 +17,7 @@
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 5fr 1fr;
+    grid-template-rows: 4fr 1fr;
     grid-template-areas: 'main' 'text';
     padding: 10vmin;
     padding-left: calc((100vw - 1000px) / 2);
@@ -36,20 +36,38 @@
 }
 
 .text-area {
-    background-color: rgba(250, 250, 250, 0.7);
-    padding: 15px;
+    background-color: rgba(250, 250, 250, 0.9);
+    padding: 10px;
     font-family: helvetica;
     border-radius: 15px;
     font-size: 1.5em;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     grid-gap: 10px;
+
+}
+
+.text {
+    display: table-cell; vertical-align: middle;
 }
 
 .text-area button {
-    background-color: rgba(250, 250, 250, 0.7);
+    background-color: rgba(250, 250, 250, 0.9);
     color: black;
     border: 2px solid #000000; /* Green */
+    margin: 2px;
+    font-size: 1.0em;
+
 }
+
+.action {
+    grid-column: span 2;
+}
+
+.option {
+    grid-column: span 1;
+
+}
+
