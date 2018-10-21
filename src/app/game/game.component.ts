@@ -23,6 +23,7 @@ export class GameComponent implements OnInit {
     private lineIndex: number;
     private canContinue = true;
     private characters: CharacterMap;
+    private guilt = 0;
 
     constructor(scenes: ScenesService) {
         this.characters = scenes.getCharacters();
@@ -75,6 +76,9 @@ export class GameComponent implements OnInit {
         this.canContinue = false;
         this.options = [];
         this.setText(option.response);
+        if (option.guilt) {
+            this.guilt += option.guilt;
+        }
         setTimeout(() => (this.canContinue = true), 100);
     }
 
