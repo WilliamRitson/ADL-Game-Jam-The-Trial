@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ScenesService, Scene, Action } from '../scenes.service';
+import { ScenesService, Scene, Action, Character } from '../scenes.service';
 
 @Component({
     selector: 'app-game',
@@ -12,8 +12,9 @@ export class GameComponent implements OnInit {
     public scene: Scene;
     public actions: Action[];
     private lineIndex: number;
+    private canContinue = true;
 
-    constructor(private scenes: ScenesService) {
+    constructor(scenes: ScenesService) {
         this.setScene(scenes.getFirst());
     }
 
@@ -26,6 +27,9 @@ export class GameComponent implements OnInit {
     }
 
     public next() {
+        if (!this.canContinue) {
+            return;
+        }
         if (this.lineIndex < this.scene.lines.length - 1) {
             this.lineIndex++;
             this.text = this.scene.lines[this.lineIndex];
@@ -35,12 +39,24 @@ export class GameComponent implements OnInit {
         }
     }
 
+    public runAction(action: Action) {
+        this.canContinue = false;
+        this.setScene(action.target);
+        setTimeout(() => this.canContinue = true, 100);
+    }
+
     public getBackgroundUrl() {
         return `assets/${this.backgroundURL}`;
     }
 
     public getCharacterUrl() {
         return `assets/${this.scene.character.image}`;
+    }
+
+    public getCharacterAura() {
+        return {
+            filter: `drop-shadow(0px 4px 4px ${this.scene.character.aura})`
+        };
     }
 
     ngOnInit() {}

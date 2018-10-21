@@ -2,12 +2,12 @@
 <div class="game-container" (click)="next()">
   
   <div class="display-area">
-      <img class="character" [src]="getCharacterUrl()" [alt]="scene.character.description" >
+      <img class="character" [ngStyle]="getCharacterAura()" [src]="getCharacterUrl()" [alt]="scene.character.description" >
   </div>
 
   <div class="text-area">
     {{text}}
-    <button *ngFor="let action of actions" (click)="setScene(action.target)">{{action.text}}</button>
+    <button *ngFor="let action of actions" (click)="runAction(action)">{{action.text}}</button>
   </div>
 
 </div>

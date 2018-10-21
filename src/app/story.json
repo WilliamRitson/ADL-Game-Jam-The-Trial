@@ -8,7 +8,7 @@
         "lawyer": {
             "image": "lawyer.png",
             "description": "Your defense lawyer",
-            "aura": "blue"
+            "aura": "cyan"
         }
     },
     "scenes": {
