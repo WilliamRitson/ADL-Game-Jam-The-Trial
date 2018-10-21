@@ -46,8 +46,14 @@ export class GameComponent implements OnInit {
             const nextLine = this.scene.lines[this.lineIndex];
             if (typeof nextLine === 'string') {
                 this.setText(nextLine);
-            } else {
+            }  else if (Array.isArray(nextLine)) {
                 this.options = nextLine;
+            } else {
+                if (this.guilt >= nextLine.threshold) {
+                    this.setText(nextLine.high);
+                } else {
+                    this.setText(nextLine.low);
+                }
             }
         } else {
             this.text = '';

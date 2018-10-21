@@ -33,7 +33,13 @@ export interface Option {
     guilt?: number;
 }
 
-export type Line = string | Array<Option>;
+export interface GuiltSplit {
+    threshold: number;
+    high: string;
+    low: string;
+}
+
+export type Line = string | GuiltSplit | Array<Option>;
 
 export class Action {
     public text: string;
@@ -90,7 +96,6 @@ export class Scene {
         if (scene.next) {
             this.next =  scenes[scene.next];
         }
-        console.log(this.next);
     }
 }
 
