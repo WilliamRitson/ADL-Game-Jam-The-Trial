@@ -131,6 +131,21 @@ export class GameComponent implements OnInit {
         };
     }
 
+    public getFilter() {
+        let brightness: number;
+        const guiltFact = 1 + Math.abs(this.guilt) / 10;
+        if (this.guilt === 1) {
+            brightness = 1;
+        } else if (this.guilt > 1) {
+            brightness = (1 / guiltFact);
+        } else {
+            brightness = guiltFact;
+        }
+        return {
+            filter: `brightness(${brightness}) saturate(${brightness})`
+        };
+    }
+
     public getTextStyle() {
         const end = 6 - this.options.length;
         return {

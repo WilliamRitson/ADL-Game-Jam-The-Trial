@@ -78,11 +78,13 @@
                 [
                     {
                         "option": "The electric chair?",
-                        "response": "lawyer: That is the standard punishment, but not the minimum one. A little sympathy from the justice may yet spare you that fate."
+                        "response": "lawyer: That is the standard punishment, but not the minimum one. A little sympathy from the justice may yet spare you that fate.",
+                        "guilt": 1
                     },
                     {
                         "option": "Shouldn’t we focus on proving my innocence?",
-                        "response": "lawyer:  As I said, the facts of the case are quite clear. It’s far too late for that to work. In all truth, you should have plead guilty from the start. But its too late now."
+                        "response": "lawyer:  As I said, the facts of the case are quite clear. It’s far too late for that to work. In all truth, you should have plead guilty from the start. But its too late now.",
+                        "guilt": -1
                     }
                 ],
                 "narrator: The lawyer looks down at his watch",
@@ -90,11 +92,13 @@
                 [
                     {
                         "option": "Watch as your attorney leaves",
-                        "response": "narrator: The guard opens the door and the man leaves without a word"
+                        "response": "narrator: The guard opens the door and the man leaves without a word",
+                        "guilt": 1
                     },
                     {
                         "option": "Call out, Wait. You need to help me",
-                        "response": "lawyer: No time now, we will talk latter."
+                        "response": "lawyer: No time now, we will talk latter.",
+                        "guilt": 0
                     }
                 ],
                 "narrator: Soon you are alone again. You the darkness of the cell seems to intrude upon your minds as the minutes turn into hours.",
@@ -200,7 +204,7 @@
                     {
                         "option": "I don’t know what that is",
                         "response": "prosecutor: This is the scalpel you used to carve and mutilate YOURSELF. The evidence is clear judge. The defendant is guilty!",
-                        "guilt": 0
+                        "guilt": 1
                     }
                 ],
                 {
