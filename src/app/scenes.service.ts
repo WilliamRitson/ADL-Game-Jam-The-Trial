@@ -22,6 +22,7 @@ interface SavedScene {
     character: string;
     actions?: Array<SavedAction>;
     next: string;
+    fork: GuiltSplit;
 }
 interface SceneMap {
     [name: string]: Scene;
@@ -61,6 +62,8 @@ export class Action {
 }
 
 export class Scene {
+    public fork: { threshold: number; high: Scene; low: Scene };
+
     constructor(
         public name: string,
         public lines: Array<Line>,
@@ -94,7 +97,14 @@ export class Scene {
         const actionData = scene.actions || [];
         this.actions = actionData.map(data => Action.formJson(data, scenes));
         if (scene.next) {
-            this.next =  scenes[scene.next];
+            this.next = scenes[scene.next];
+        }
+        if (scene.fork) {
+            this.fork = {
+                threshold: scene.fork.threshold,
+                high: scenes[scene.fork.high],
+                low: scenes[scene.fork.low]
+            };
         }
     }
 }

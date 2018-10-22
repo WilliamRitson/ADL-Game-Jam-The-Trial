@@ -59,8 +59,17 @@ export class GameComponent implements OnInit {
             this.text = '';
             if (this.scene.actions.length > 0) {
                 this.actions = this.scene.actions;
-            } else {
+            } else if (this.scene.fork) {
+                if (this.guilt >= this.scene.fork.threshold) {
+                    this.setScene(this.scene.fork.high);
+                } else {
+                    this.setScene(this.scene.fork.low);
+                }
+            } else if (this.scene.next) {
                 this.setScene(this.scene.next);
+            } else {
+                this.setText('The End. Reload the page to restart.');
+                this.canContinue = false;
             }
         }
     }

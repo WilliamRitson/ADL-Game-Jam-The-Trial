@@ -163,7 +163,8 @@
             "lines": [
                 "narrator: You end up back at your jail cell after the trial. You lie down on the uncomforting feeling of your rock hard mattress and itchy blanket.",
                 "player: Why are these things happening to me. I don’t understand. I wish I could at least remember something that happened before… ",
-                "player: I wonder what kind of crime I had committed for people to bring so much hate to me. I just need to get some rest and not think about this trial."
+                "player: I wonder what kind of crime I had committed for people to bring so much hate to me. I just need to get some rest and not think about this trial.",
+                "narrator: You are jostled awake by the guards and dragged towards the courtroom where your lawyer is waiting"
             ],
             "backgroundUrl": "prison-bg.jpg",
             "character": "narrator",
@@ -205,14 +206,15 @@
                     "high": "judge: Now, for the crimes of Self Mutilation , conspiracy, attempted false identity, and the crux of the issue, gender reassignment surgery, the defendant is sentenced to life in prison.",
                     "low": "judge: Now, for the crimes of Self Mutilation , conspiracy, attempted false identity, and the crux of the issue, gender reassignment surgery, the defendant is sentenced to death by electrocution."
                 },
-                "player: suddenly it all comes rushing back to you. You start remembering the past. the years of fear and confusion, the self discovery and assertion, and finally, the operation you had so you could truly feel like yourself. You and the doctor were both arrested soon after the operation, and the first night in your cell, the guards beat you so badly you fell unconscious until the day of the trial."
+                "player: Suddenly it all comes rushing back to you. You start remembering the past. the years of fear and confusion, the self discovery and assertion, and finally, the operation you had so you could truly feel like yourself. You and the doctor were both arrested soon after the operation, and the first night in your cell, the guards beat you so badly you fell unconscious until the day of the trial."
             ],
             "backgroundUrl": "billboard-appeals-courtroom.jpg",
             "character": "judge",
-            "actions": [
-                { "text": "Good end", "target": "goodEnd" },
-                { "text": "Bad end", "target": "badEnd" }
-            ]
+            "fork": {
+                "threshold": 2,
+                "high": "badEnd",
+                "low": "goodEnd"
+            }
         },
         "goodEnd": {
             "lines": [
@@ -237,8 +239,7 @@
                 "narrator: Stumbling through the chaos, you head over to the western wall, and notice a large chunk of barbed wire is missing and a rope is hanging down. You walk over to the hanging rope and frantically climb up it. As you make your way to the top your head slightly peaks over the edge of the wall and you see group of 4 people surrounding a truck. They signal to you and you make your way to the getaway car as you knowingly run towards future of freedom."
             ],
             "backgroundUrl": "courtyard.jpg",
-            "character": "narrator",
-            "next": "start"
+            "character": "narrator"
         },
         "badEnd": {
             "lines": [
@@ -250,8 +251,7 @@
                 "narrator: You think back to when you had just gotten your operation done. You were in a state of such euphoria, but you slowly start to realize your current situation and think about what awaits you for the rest of your life. A lifetime of sitting inside a fenced box. Regret fills you up as you lay there in the darkness of your own cell."
             ],
             "backgroundUrl": "prison-bg.jpg",
-            "character": "lawyer",
-            "next": "start"
+            "character": "lawyer"
         }
     }
 }
