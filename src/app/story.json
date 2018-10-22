@@ -109,7 +109,10 @@
             "lines": [
                 "narrator: While you walk to the courtroom, people shout and jeer at you. They tell you that you don’t deserve to live and that people of your kind should not be even allowed a trial. ",
                 "judge: We will now proceed with the trial at hand. The prosecution will present their opening statement.",
-                "prosecutor: The evidence is clear. On October 20th, the defendant committed gross mutilation and other heinous crimes. What the defense wants you to believe is that they haven’t done anything wrong, but in ACTUALITY they have committed a serious crime. The motive behind this crime is unclear but the FACT that they have done it is for certain. It’s disheartening that anybody in our society could do something so foul. They deserve to be punished with the full extent of the law.",
+                "prosecutor: The evidence is clear. On October 20th, the defendant committed gross mutilation and other heinous crimes.",
+                "prosecutor: What the defense wants you to believe is that the defendant has done anything wrong, but in ACTUALITY they have committed a serious crime.",
+                "prosecutor: The motive behind this crime is unclear but the FACT that they have done it is for certain. It’s disheartening that anybody in our society could do something so foul.",
+                "prosecutor: They deserve to be punished with the full extent of the law.",
                 "judge: Now the Defendant will now present their opening statement.",
                 "lawyer: The defense would like to make an appeal to the judge to lessen the punishment for these charges. The defendant hasn’t done anything wrong. Their crime should be considered  lightly due to the limited effect of these crimes.",
                 "judge: Is that all?",

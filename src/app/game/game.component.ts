@@ -46,7 +46,7 @@ export class GameComponent implements OnInit {
             const nextLine = this.scene.lines[this.lineIndex];
             if (typeof nextLine === 'string') {
                 this.setText(nextLine);
-            }  else if (Array.isArray(nextLine)) {
+            } else if (Array.isArray(nextLine)) {
                 this.options = nextLine;
             } else {
                 if (this.guilt >= nextLine.threshold) {
@@ -133,5 +133,16 @@ export class GameComponent implements OnInit {
             color: this.textColor
         };
     }
-    ngOnInit() {}
+    ngOnInit() {
+        const backgroundSong = new Audio('assets/bg.mp3');
+        backgroundSong.addEventListener(
+            'ended',
+            function() {
+                this.currentTime = 0;
+                this.play();
+            },
+            false
+        );
+        backgroundSong.play();
+    }
 }
