@@ -203,15 +203,17 @@
                         "guilt": 0
                     }
                 ],
-
                 {
                     "threshold": 2,
                     "high": "judge: Now, for the crimes of Self Mutilation , conspiracy, attempted false identity, and the crux of the issue, gender reassignment surgery, the defendant is sentenced to life in prison.",
                     "low": "judge: Now, for the crimes of Self Mutilation , conspiracy, attempted false identity, and the crux of the issue, gender reassignment surgery, the defendant is sentenced to death by electrocution."
                 },
                 "narrator: Suddenly it all comes rushing back to you.",
-                "narrator: You start remembering the past. the years of fear and confusion, the self discovery and assertion, and finally, the operation you had so you could truly feel like yourself.",
-                "narrator You and the doctor were both arrested soon after the operation, and the first night in your cell, the guards beat you so badly you fell unconscious until the day of the trial."
+                "narrator: You start remembering the past. the years of fear and confusion.",
+                "narrator: The self discovery and assertion, the new regime putting a target on your back", 
+                "narrator: And Finally, the operation you had so you could truly feel like yourself.",
+                "narrator: You and the doctor were both arrested soon after the operation",
+                "narrator: When you refused to plead guilty, the guards beat you so badly you fell into a comma until the day of the trial."
             ],
             "backgroundUrl": "billboard-appeals-courtroom.jpg",
             "character": "judge",
@@ -227,7 +229,7 @@
                 "player: This didn’t go well it?",
                 "lawyer: No it did not.",
                 "narrator: Suddenly, a fight breaks out within the walls of the prison",
-                "guard: Hey!",
+                "officer: Hey!",
                 "narrator: The guards run off to the scene leaving you alone with your lawyer",
                 "lawyer: We don’t have much time, your fight has inspired resistances across the country, if you want to be free, meet at the western wall before you get transferred tomorrow, you’ll know when.",
                 "narrator: Without another word of explanation, the lawyer leaves your cell",
