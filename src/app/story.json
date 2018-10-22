@@ -209,7 +209,9 @@
                     "high": "judge: Now, for the crimes of Self Mutilation , conspiracy, attempted false identity, and the crux of the issue, gender reassignment surgery, the defendant is sentenced to life in prison.",
                     "low": "judge: Now, for the crimes of Self Mutilation , conspiracy, attempted false identity, and the crux of the issue, gender reassignment surgery, the defendant is sentenced to death by electrocution."
                 },
-                "player: Suddenly it all comes rushing back to you. You start remembering the past. the years of fear and confusion, the self discovery and assertion, and finally, the operation you had so you could truly feel like yourself. You and the doctor were both arrested soon after the operation, and the first night in your cell, the guards beat you so badly you fell unconscious until the day of the trial."
+                "narrator: Suddenly it all comes rushing back to you.",
+                "narrator: You start remembering the past. the years of fear and confusion, the self discovery and assertion, and finally, the operation you had so you could truly feel like yourself.",
+                "narrator You and the doctor were both arrested soon after the operation, and the first night in your cell, the guards beat you so badly you fell unconscious until the day of the trial."
             ],
             "backgroundUrl": "billboard-appeals-courtroom.jpg",
             "character": "judge",
@@ -239,7 +241,10 @@
         },
         "goodEndEscape": {
             "lines": [
-                "narrator: Stumbling through the chaos, you head over to the western wall, and notice a large chunk of barbed wire is missing and a rope is hanging down. You walk over to the hanging rope and frantically climb up it. As you make your way to the top your head slightly peaks over the edge of the wall and you see group of 4 people surrounding a truck. They signal to you and you make your way to the getaway car as you knowingly run towards future of freedom."
+                "narrator: Stumbling through the chaos, you head over to the western wall, and notice a large chunk of barbed wire is missing and a rope is hanging down. ",
+                "narrator: You walk over to the hanging rope and frantically climb up it. ",
+                "narrator: As you make your way to the top your head slightly peaks over the edge of the wall and you see group of 4 people surrounding a truck. ",
+                "narrator: They signal to you and you make your way to the getaway car as you knowingly run towards future of freedom."
             ],
             "backgroundUrl": "courtyard.jpg",
             "character": "narrator"
