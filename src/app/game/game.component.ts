@@ -24,6 +24,8 @@ export class GameComponent implements OnInit {
     private canContinue = true;
     private characters: CharacterMap;
     private guilt = 0;
+    private soundPlaying = false;
+    private backgroundSong: HTMLAudioElement;
 
     constructor(scenes: ScenesService) {
         this.characters = scenes.getCharacters();
@@ -75,6 +77,9 @@ export class GameComponent implements OnInit {
     }
 
     public continue() {
+        if (!this.soundPlaying) {
+            this.playSound();
+        }
         if (!this.canContinue || this.options.length !== 0) {
             return;
         }
@@ -133,9 +138,13 @@ export class GameComponent implements OnInit {
             color: this.textColor
         };
     }
+
+    private playSound() {
+        this.backgroundSong.play();
+    }
     ngOnInit() {
-        const backgroundSong = new Audio('assets/bg.mp3');
-        backgroundSong.addEventListener(
+        this.backgroundSong = new Audio('assets/bg.mp3');
+        this.backgroundSong.addEventListener(
             'ended',
             function() {
                 this.currentTime = 0;
@@ -143,6 +152,5 @@ export class GameComponent implements OnInit {
             },
             false
         );
-        backgroundSong.play();
     }
 }
